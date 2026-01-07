@@ -64,17 +64,17 @@ http://localhost:5001
 
 Bewerbertest2026
 ├── Backend
-│   ├── app
-│   ├── Database
-│   ├── docker-compose.yml
-│   ├── Dockerfile.dev
-│   ├── index.js
-│   └── package.json
+│ ├── app
+│ ├── Database
+│ ├── docker-compose.yml
+│ ├── Dockerfile.dev
+│ ├── index.js
+│ └── package.json
 │
 ├── Frontend
-│   ├── app
-│   ├── docker-compose.yml
-│   └── Dockerfile.dev
+│ ├── app
+│ ├── docker-compose.yml
+│ └── Dockerfile.dev
 │
 ├── user.csv
 └── README.md
