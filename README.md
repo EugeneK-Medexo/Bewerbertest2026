@@ -13,6 +13,14 @@ Erstelle eine Webapp in der folgende Funktionalitäten bereitgestellt werden:
 - User blockieren und freischalten können
 - In der Tabelle nach verschiedenen Attributen sortieren und filtern können
 
+In der Präsentation:
+- Vorstellung der App
+- Erklärung des Codes
+
+Wichtige Fragen:
+- Was würdest du an der Struktur vereinfachen?
+- Was sollte man ändern, wenn der Code in eine Produktivumgebung deployed wird? 
+
 ---
 
 ## Voraussetzungen
