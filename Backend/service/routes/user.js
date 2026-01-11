@@ -1,24 +1,13 @@
 const router = require('express').Router()
-const { MongoClient } = require('mongodb');
+const User =require("../entity/UserModel");
 
-//example connection  
-//can be replaced and refactored
-async function connectToMongoDB() {
+router.get('/', async (req, res) => {
   try {
-    const uri = "mongodb://root:root@mongo-user:27017/userdb"
-    const client = new MongoClient(uri);
-    await client.connect();
-    
-    return client;
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    throw error;
+    const users = await User.find().limit(50).lean();
+    res.status(200).json({items: users});
+  }catch(err) {
+    console.error("GET /users failed:",err);
   }
-}
-
-router.get('', async (req, res) => {
-
-  res.send("TODO User GET")
 })
 
 router.get('/:id', async (req, res) => {
