@@ -71,12 +71,45 @@ router.patch('/:id', async (req, res) => {
 })
 
 router.patch('/:id/block', async (req, res) => {
-  res.send("TODO User Block")
+  try {
+      const { id } = req.params;
 
+      const updated = await User.findByIdAndUpdate(
+          id,
+          {blocked: true},
+          {new: true, lean: true}
+      );
+
+      if (!updated) {
+          return res.status(404).json({message:"User not found"});
+      }
+
+      return res.status(200).json({items: updated});
+  } catch (err) {
+      console.error("PATCH /users/:id/block failed", err);
+      return res.status(500).json({message:"Internal server error"});
+  }
 })
 
 router.patch('/:id/unblock', async (req, res) => {
-  res.send("TODO User unblock")
+  try{
+      const { id } = req.params;
+
+      const updated = await User.findByIdAndUpdate(
+          id,
+          {blocked: false},
+          {new: true, lean: true}
+      );
+
+      if (!updated) {
+          return res.status(404).json({message:"User not found"});
+      }
+
+      return res.status(200).json({items: updated});
+  }catch(err) {
+      console.error("PATCH /users/:id/unblock failed", err);
+      return res.status(500).json({message:"Internal server error"});
+  }
 })
 
 module.exports = router
